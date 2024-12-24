@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/43290fa92d.js" crossorigin="anonymous"></script>
+    <title>Restaurant Website</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+            color: #4f4f4f;
+            transition: background-color 0.5s ease;
+        }
+    
+        header {
+            background: linear-gradient(45deg, #ff5e62, #ff9966);
+            color: white;
+            padding: 15px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
+    
+        header img {
+            height: 50px;
+            width: 50px;
+            border-radius: 50%;
+        }
+    
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+    
+        nav ul li {
+            margin: 0 15px;
+        }
+    
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            position: relative;
+        }
+    
+        nav ul li a::after {
+            content: '';
+            display: block;
+            height: 3px;
+            background-color: white;
+            width: 0;
+            transition: width 0.3s ease;
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+        }
+    
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+    
+        .section {
+            padding: 80px 20px;
+            text-align: center;
+            transition: background-color 0.5s ease, opacity 0.5s ease;
+        }
+    
+        /* Hero Section */
+        .hero-section {
+            position: relative;
+            color: white;
+            text-align: center;
+            background-image: url('images/home.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 90vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+    
+        .hero-section h1 {
+            font-size: 4rem;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+            margin-bottom: 20px;
+        }
+    
+        .hero-section p {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+        }
+    
+        /* Menu Items */
+        .menu-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+    
+        .menu-item {
+            flex: 1 1 30%;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            background-color: #fff;
+            transition: transform 0.3s ease;
+            max-width: 350px;
+        }
+    
+        .menu-item:hover {
+            transform: scale(1.05);
+            background-color: #fef1e6;
+        }
+    
+        .menu-item img {
+            width: 100%;
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
+    
+        h1, h2 {
+            margin-bottom: 20px;
+            font-family: 'Poppins', sans-serif;
+        }
+    
+        h1 {
+            font-weight: 600;
+        }
+    
+        /* Footer Section */
+        footer {
+            background: linear-gradient(45deg, #4a90e2, #9013fe);
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 40px;
+        }
+    
+        footer .floating-icons {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 20px;
+        }
+    
+        footer .icon {
+            width: 50px;
+            height: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            color: rgb(255, 254, 254);
+            background: linear-gradient(45deg, #9714fb, #a967fb);
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+    
+        footer .icon:hover {
+            background: linear-gradient(45deg, #ff5e62, #ff9966);
+            color: #ffffff;
+            transform: scale(1.2);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
+    
+        /* Review Section */
+        .review {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            margin-bottom: 30px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, background-color 0.5s ease;
+        }
+    
+        .review:hover {
+            transform: scale(1.03);
+            background-color: #ffece6;
+        }
+    
+        .review img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+    
+        .review-content {
+            flex: 1;
+            text-align: left;
+        }
+    
+        .review p {
+            font-size: 1.2em;
+            font-weight: 500;
+        }
+    </style>
+    
+</head>
+<body>
+    <!-- Navigation -->
+    <header>
+        <img src="images/foodlogo.jpg" alt="Logo">
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#menu">Menu</a></li>
+                <li><a href="#reservation">Reservations</a></li>
+                <li><a href="#reviews">Reviews</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Home Section -->
+    <div class="hero-section">
+        <h1>Welcome to Our Restaurant!</h1>
+        <p>Enjoy the finest dining experience with an ambiance that delights the senses.</p>
+    </div>
+
+    <!-- Menu Section -->
+    <section class="section" id="menu">
+        <h2 class="fade-in">Our Menu</h2>
+        <div class="menu-container">
+            <div class="menu-item">
+                <h3>Appetizers</h3>
+                <img src="images/sr.jpg" alt="Spring Rolls">
+                <img src="images/cp.jpg" alt="Chilli Potato">
+                <img src="images/gb.jpg" alt="Garlic Bread">
+                <p>Delicious starters to kickstart your meal!</p>
+            </div>
+            <div class="menu-item">
+                <h3>Main Courses</h3>
+                <img src="images/sp.jpg" alt="Shahi Paneer">
+                <img src="images/dm.jpg" alt="Dal Makhani">
+                <img src="images/vb.jpg" alt="Veg Biryani">
+                <p>Savor our delectable main courses, crafted with love.</p>
+            </div>
+            <div class="menu-item">
+                <h3>Desserts</h3>
+                <img src="images/cc.jpg" alt="Chocolate Cake">
+                <img src="images/rm.jpg" alt="Rasmalai">
+                <img src="images/ic.jpg" alt="Ice Cream">
+                <p>End your meal on a sweet note with our desserts!</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reservations Section -->
+    <section class="section fade-in" id="reservation">
+        <h2>Make a Reservation</h2>
+        <div class="form-container">
+            <form action="#" method="post">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" placeholder="Enter your name" required>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email" required>
+
+                <label for="phone">Phone Number:</label>
+                <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required>
+
+                <label for="date">Reservation Date:</label>
+                <input type="date" id="date" name="date" required>
+
+                <label for="time">Reservation Time:</label>
+                <input type="time" id="time" name="time" required>
+
+                <label for="guests">Number of Guests:</label>
+                <input type="number" id="guests" name="guests" placeholder="Enter number of guests" min="1" max="20" required>
+
+                <button type="submit">Reserve Table</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Reviews Section -->
+    <section class="section" id="reviews">
+        <h2>Customer Reviews</h2>
+        <div class="review">
+            <img src="images/people1.jpg" alt="Rakesh Jain">
+            <div class="review-content">
+                <p><strong>Rakesh Jain:</strong> "Amazing food and great service! Highly recommend the steak."</p>
+            </div>
+        </div>
+        <div class="review">
+            <img src="images/people2.jpg" alt="Sumit Arora">
+            <div class="review-content">
+                <p><strong>Sumit Arora:</strong> "A wonderful experience! The desserts were to die for!"</p>
+            </div>
+        </div>
+        <div class="review">
+            <img src="images/people3.jpg" alt="Mukesh Singh">
+            <div class="review-content">
+                <p><strong>Mukesh Singh:</strong> "Best spring roll I've ever had! Will definitely be back."</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Our Restaurant. All Rights Reserved.</p>
+        <div class="floating-icons">
+                <div class="icon"><a href="https://github.com/UmangSaluja10"><i class="fa-brands fa-github"></i></a>
+                </div>
+                <div class="icon"><a href="https://www.linkedin.com/in/umang-saluja-295294322"><i class="fa-brands fa-linkedin"></i></a>
+                </div>
+                <div class="icon"><a href="https://www.instagram.com/hanuman_devotee1001/profilecard/?igsh=b21nOGFkNnlia2tt">
+                    <i class="fa-brands fa-instagram"></i></a></div>
+            </div>
+    </footer>
+</body>
+</html>
